@@ -35,20 +35,20 @@ In this post, I want to share my experience creating notification in flutter usi
    1. In `android/build.gradle`, make sure `com.android.tools.build:gradle` version is `7.3.1`. If not, you just can change the version
    2. In `android/app/build.gradle`, add code below inside `compileOptions`
 
-      ```
+      ```bash
       coreLibraryDesugaringEnabled true
       ```
 
       And then add code below inside `defaultConfig`
 
-      ```
+      ```bash
       ...
       multiDexEnabled true
       ```
 
       And last, add code below inside `dependencies`
 
-      ```
+      ```bash
       implementation 'androidx.window:window:1.0.0'
       implementation 'androidx.window:window-java:1.0.0'
       coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.2.2'
