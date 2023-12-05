@@ -6,17 +6,16 @@ import Footer from "@components/Footer.astro";
 import LinkButton from "@components/LinkButton.astro";
 import Hr from "@components/Hr.astro";
 import Card from "@components/Card";
-import Socials from "@components/Socials.astro";
+import Project from "@components/Project";
 import getSortedPosts from "@utils/getSortedPosts";
 import slugify from "@utils/slugify";
-import { SOCIALS } from "@config";
 
 const posts = await getCollection("blog");
 
 const sortedPosts = getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 
-const socialCount = SOCIALS.filter(social => social.active).length;
+const projects = await getCollection("projects");
 ---
 
 <Layout>
@@ -40,11 +39,10 @@ const socialCount = SOCIALS.filter(social => social.active).length;
         </svg>
       </a>
 
+      <p>Hello there 👋</p>
       <p>
-        Hello there 👋
-      </p>
-      <p>
-        I'm Junianto, a student from Universitas Dian Nuswantoro Semarang. Poem writer using <em>==QZk92Y</em>.
+        I'm Junianto, a student from Universitas Dian Nuswantoro Semarang. Poem
+        writer using <em>==QZk92Y</em>.
       </p>
 
       <!-- <p>
@@ -79,7 +77,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       featuredPosts.length > 0 && (
         <>
           <section id="featured">
-            <h2>Featured</h2>
+            <h2>Featured Posts</h2>
             <ul>
               {featuredPosts.map(({ data }) => (
                 <Card
@@ -90,12 +88,45 @@ const socialCount = SOCIALS.filter(social => social.active).length;
               ))}
             </ul>
           </section>
+
+          <div class="all-posts-btn-wrapper">
+            <LinkButton href="/posts">
+              All Posts
+              <svg xmlns="http://www.w3.org/2000/svg">
+                <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z" />
+              </svg>
+            </LinkButton>
+          </div>
           <Hr />
         </>
       )
     }
 
-    <section id="recent-posts">
+    {
+      projects.length > 0 && (
+        <>
+          <section id="featured">
+            <h2>Projects</h2>
+            <ul>
+              {projects.map(({ data }) => (
+                <Project frontmatter={data} secHeading={false} />
+              ))}
+            </ul>
+          </section>
+
+          <div class="all-posts-btn-wrapper">
+            <LinkButton href="/projects">
+              All Projects
+              <svg xmlns="http://www.w3.org/2000/svg">
+                <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z" />
+              </svg>
+            </LinkButton>
+          </div>
+        </>
+      )
+    }
+
+    <!-- <section id="recent-posts">
       <h2>Recent Posts</h2>
       <ul>
         {
@@ -123,7 +154,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
           </svg>
         </LinkButton>
       </div>
-    </section>
+    </section> -->
   </main>
 
   <Footer />

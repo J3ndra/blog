@@ -1,7 +1,7 @@
 import type { Site, SocialObjects } from "./types";
 
 export const SITE: Site = {
-  website: "https://astro-paper.pages.dev/", // replace this with your deployed domain
+  website: "https://juniantodev.vercel.app/", // replace this with your deployed domain
   author: "Junianto Endra Kartika",
   desc: "A website for Junianto Endra Kartika's blog and portfolio",
   title: "JuniantoDev",

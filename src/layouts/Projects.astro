@@ -1,0 +1,65 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Layout from "./Layout.astro";
+import { SITE } from "@config";
+import Header from "@components/Header.astro";
+import Main from "./Main.astro";
+import Project from "@components/Project";
+import Footer from "@components/Footer.astro";
+
+export interface Props {
+  pageNum: number;
+  totalPages: number;
+  projects: CollectionEntry<"projects">[];
+}
+
+const { pageNum, totalPages, projects } = Astro.props;
+
+const prev = pageNum > 1 ? "" : "disabled";
+const next = pageNum < totalPages ? "" : "disabled";
+---
+
+<Layout title={`Projects | ${SITE.title}`}>
+  <Header activeNav="projects" />
+  <Main pageTitle="Projects" pageDesc="All the projects I've done.">
+    <ul>
+      {
+        projects.map(({ data }) => (
+          <Project frontmatter={data} secHeading={false} />
+        ))
+      }
+    </ul>
+  </Main>
+
+  {
+    totalPages > 1 && (
+      <div class="pagination-wrapper">
+        <a href={`/projects/${pageNum - 1}`} class={`btn btn-outline ${prev}`}>
+          <svg class="w-6 h-6 fill-current group-hover:fill-skin-base disabled-svg" viewBox="0 0 24 24">
+            <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"></path>
+          </svg>
+          <span>Prev</span>
+        </a>
+        <a href={`/projects/${pageNum + 1}`} class={`btn btn-outline ${next}`}>
+          <span>Next</span>
+          <svg class="w-6 h-6 fill-current group-hover:fill-skin-base disabled-svg" viewBox="0 0 24 24">
+            <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"></path>
+          </svg>
+        </a>
+      </div>
+    )
+  }
+  <Footer noMarginTop={totalPages > 1} />
+</Layout>
+
+<style>
+  .pagination-wrapper {
+    @apply mb-8 mt-auto flex justify-center;
+  }
+  .disabled {
+    @apply pointer-events-none select-none opacity-50 hover:text-skin-base group-hover:fill-skin-base;
+  }
+  .disabled-svg {
+    @apply group-hover:!fill-skin-base;
+  }
+</style>

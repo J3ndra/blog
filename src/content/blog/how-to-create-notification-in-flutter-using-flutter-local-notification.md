@@ -8,8 +8,8 @@ ogImage: https://i.ibb.co/9cnFwYB/flutter-local-notification-og.png
 tags:
   - Dart
   - Flutter
-description:
-  Create notification for Flutter using flutter_local_notifications
+description: Create notification for Flutter using flutter_local_notifications
+canonicalURL: https://juniantodev.vercel.app/posts/how-to-create-notification-in-flutter-using-flutter-local-notification
 ---
 
 ## Table of contents
@@ -19,19 +19,20 @@ In this post, I want to share my experience creating notification in flutter usi
 ## SETUP
 
 1. Create new flutter project
-   
+
    ```bash
    flutter create -e flutter_notification --platforms android,ios
    ```
 
 2. After creating the project, add [flutter_local_notifications](https://pub.dev/packages/flutter_local_notifications) dependencies.
-   
+
    ```bash
    flutter pub add flutter_timezone
    flutter pub add flutter_local_notifications
    ```
 
 3. Android device setup
+
    1. In `android/build.gradle`, make sure `com.android.tools.build:gradle` version is `7.3.1`. If not, you just can change the version
    2. In `android/app/build.gradle`, add code below inside `compileOptions`
 
@@ -53,7 +54,7 @@ In this post, I want to share my experience creating notification in flutter usi
       implementation 'androidx.window:window-java:1.0.0'
       coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.2.2'
       ```
-  
+
    3. Add permission in `android/app/src/main/AndroidManifest.xml` inside `manifest`
 
       ```xml
@@ -100,9 +101,11 @@ In this post, I want to share my experience creating notification in flutter usi
 
 1. Add this icon to `android/app/src/main/res/drawable` and move the icon inside `drawable` folder.
    ![App Icon](@assets/images/flutter_local_notification/app_icon.png)
+
    > Or you can download it from [here](https://www.pngwing.com/en/free-png-aaxil/download).
 
 2. Open `main.dart` and replace it with
+
    ```dart
    void main() {
       runApp(const MainApp());
@@ -159,6 +162,7 @@ In this post, I want to share my experience creating notification in flutter usi
       }
    }
    ```
+
    > This code will add three button to test our notification to work properly. Now, try to `hot reload` or run the code.
 
    ![Example One](@assets/images/flutter_local_notification/photo_6285324230266568455_y.jpg)
@@ -259,18 +263,20 @@ In this post, I want to share my experience creating notification in flutter usi
    }
 
    ```
+
    Let's breakdown the code
 
    ```dart
    final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
    ```
-   > This code is used for create an instance of the `FlutterLocalNotificationsPlugin` and named `flutterLocalNotificationsPlugin` so we can call the instance directly.
 
+   > This code is used for create an instance of the `FlutterLocalNotificationsPlugin` and named `flutterLocalNotificationsPlugin` so we can call the instance directly.
 
    ```dart
    Future<void> initNotification()
    ```
+
    > This will be our function to call `initNotification` to start initialization for notification.
 
    ```dart
@@ -282,12 +288,14 @@ In this post, I want to share my experience creating notification in flutter usi
       tz.setLocalLocation(tz.getLocation(timeZoneName));
    }
    ```
+
    > We will need to configure our local time zone to able to work with scheduled notification. So we need to `initializeTimeZones` and `setLocalLocation` to our local time zone.
 
    ```dart
    AndroidInitializationSettings initializationSettingsAndroid =
         const AndroidInitializationSettings('app_icon');
    ```
+
    > This will create an instance of `AndroidInitializationSettings` and will set the Android Notification default icon to be `app_icon`. The icon that we already insert it before.
 
    ```dart
@@ -303,6 +311,7 @@ In this post, I want to share my experience creating notification in flutter usi
       ) async {},
    );
    ```
+
    > Instance of `DarwinInitializationSettings` is used for IOS devices, it specifies app permission like alert, badge and sound to able to used it. `onDidReceiveLocalNotification` is used to handling received local notifications on IOS.
 
    > Sadly I don't have IOS devices so I can't test it on IOS devices.
@@ -313,8 +322,8 @@ In this post, I want to share my experience creating notification in flutter usi
       iOS: initializationSettingsIOS,
    );
    ```
+
    > Instance of `InitializationSettings` will initialize setting for IOS and Android
-   
 
    ```dart
    await flutterLocalNotificationsPlugin.initialize(initializationSettings,
@@ -325,6 +334,7 @@ In this post, I want to share my experience creating notification in flutter usi
       }
    });
    ```
+
    > `flutterLocalNotificationsPlugin` will initialized with `InitializationSettings`
 
    ```dart
@@ -333,6 +343,7 @@ In this post, I want to share my experience creating notification in flutter usi
             AndroidFlutterLocalNotificationsPlugin>()
         ?.requestNotificationsPermission();
    ```
+
    > This code will request any permission that available in Android and IOS to enalbe notification
 
    ```dart
@@ -347,6 +358,7 @@ In this post, I want to share my experience creating notification in flutter usi
          iOS: DarwinNotificationDetails());
    }
    ```
+
    > This will be our function for detail of notification
 
    ```dart
@@ -377,18 +389,21 @@ In this post, I want to share my experience creating notification in flutter usi
          id, title, body, notificationDetails());
    }
    ```
+
    > This will be our function to display the notification when we press the button
 
-3. Change `void main` in `main.dart` to
+4. Change `void main` in `main.dart` to
+
    ```dart
    void main() async {
       WidgetsFlutterBinding.ensureInitialized();
 
       await NotificationService().initNotification();
-      
+
       runApp(const MainApp());
    }
    ```
+
    > Don't forget to import the package
 
 ## Example
