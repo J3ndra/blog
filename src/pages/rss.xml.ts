@@ -22,7 +22,7 @@ export async function GET() {
     link: `${data.url}`,
     title: data.title,
     description: data.description,
-    pubDate: new Date(data.pubDate),
+    pubDate: new Date(data.pubDatetime),
   }));
 
   const combinedFeed = blogFeed.concat(projectsFeed);
