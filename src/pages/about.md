@@ -7,17 +7,17 @@ title: "About Me"
   <img src="/assets/me.jpg" class="sm:w-1/2 mx-auto rounded-full" alt="coding dev illustration">
 </div>
 
-## Hello There 👋
+## Greetings! 👋
 
-I'm Junianto Endra Kartika, a computer science student from Universitas Dian Nuswantoro. This website built with [Astro](https://astro.build/) and theme by [satnaing](https://github.com/satnaing/astro-paper).
+I'm Junianto Endra Kartika, currently pursuing a degree in computer science at Universitas Dian Nuswantoro. This website is crafted using [Astro](https://astro.build/) with a theme curated by [satnaing](https://github.com/satnaing/astro-paper).
 
 ## Tech Stack
 
-I've learn Dart, Kotlin and Java for Android Development. My main field is Android Development as I've done projects for some companies and other personal project. 
+My expertise lies in Android Development, where I've honed my skills in Dart, Kotlin, Java, and JavaScript (React Native). I've successfully contributed to projects for various companies and undertaken personal initiatives in this domain.
 
-I also learn JavaScript and PHP for expanding my knowledge about Web Development, I usually use Laravel as PHP Framework and React as JavaScript Framework for campus project. 
+Venturing into Web Development, I've delved into JavaScript and PHP, leveraging Laravel as my preferred PHP Framework and React as the JavaScript Framework for my university projects.
 
-Python and Java is fun to know about it, I try it just to make fun project such as Discord Bot, Web Scrapping and Minecraft Plugin.
+Beyond my core areas, I find joy in experimenting with Python and Java, utilizing them to embark on exciting projects such as Chat Bot such with Discord nor Telegram, Web Scraping, Machine Learning, and Minecraft Plugins. It's all about the thrill of exploration and bringing ideas to life!
 
 <!-- AstroPaper is a minimal, responsive and SEO-friendly Astro blog theme. I designed and crafted this based on [my personal blog](https://satnaing.dev/blog).
 
@@ -48,5 +48,5 @@ Here are certain features of this site.
 - sitemap & rss feed
 - highly customizable
 
-If you like this theme, you can star/contribute to the [repo](https://github.com/satnaing/astro-paper).  
+If you like this theme, you can star/contribute to the [repo](https://github.com/satnaing/astro-paper).
 Or you can even give any feedback via my [email](mailto:contact@satnaing.dev). -->
