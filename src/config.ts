@@ -30,13 +30,13 @@ export const SOCIALS: SocialObjects = [
     name: "Facebook",
     href: "https://www.facebook.com/junianto.junianto.754365",
     linkTitle: `${SITE.title} on Facebook`,
-    active: true,
+    active: false,
   },
   {
     name: "Instagram",
     href: "https://www.instagram.com/j.3ndra/",
     linkTitle: `${SITE.title} on Instagram`,
-    active: true,
+    active: false,
   },
   {
     name: "LinkedIn",
