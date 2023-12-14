@@ -8,7 +8,7 @@ ogImage: https://i.ibb.co/bP4NzqC/data-encryption-standard-og.png
 tags:
   - Python
   - DES
-description: How to use Cubit BLoC in Flutter and test it using bloc_test with unit testing
+description: How to encrypt message using Data Encryption Standard (DES) in python
 canonicalURL: https://juniantodev.vercel.app/posts/data-encryption-standard-des-in-python
 ---
 
