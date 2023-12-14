@@ -4,7 +4,7 @@ author: Junianto Endra kartika
 pubDatetime: 2023-12-12T22:42:51Z
 postSlug: what-is-flutter-cubit-bloc-and-how-to-test-it
 featured: true
-ogImage: https://i.ibb.co/9cnFwYB/flutter-local-notification-og.png
+ogImage: https://i.ibb.co/18B4C65/flutter-cubit-bloc-unit-testing-og.png
 tags:
   - Dart
   - Flutter
